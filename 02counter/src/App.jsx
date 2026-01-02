@@ -2,19 +2,21 @@ import { useState } from 'react'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(9)
-  function handleAdd() {
-    setCount(count + 1)
+  const [inputValue, setInputValue] = useState("")
+
+  function handleInputChange(e) {
+    setInputValue(e.target.value)
   }
-  function handleRemove() {
-    setCount(count - 1)
-  }
+
   return (
     <>
-      <h2>Trial react</h2>
-      <h3>Counter value: {count}</h3>
-      <button onClick={handleAdd}>Add value</button> <br />
-      <button onClick={handleRemove}>Remove value</button>
+      <h2>Count Number of Characters in Input</h2>
+      <input
+        type="text"
+        value={inputValue}
+        onChange={handleInputChange}
+      />
+      <p>Word Count: {inputValue.length}</p>
     </>
   )
 }
